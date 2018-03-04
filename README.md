@@ -26,6 +26,7 @@ Quizzes and notes for Udemy online course Shell Scripting: Discover How to Autom
     then
         command 1
     elif [ test2 ]
+    then
         command 2
     else
         command N
@@ -47,7 +48,12 @@ Quizzes and notes for Udemy online course Shell Scripting: Discover How to Autom
             `for COLOR in $COLORS`
         * `PICTURES=$(ls *jpg)`  
             `for PICTURE in $PICTURES`
-* Positional Parameters  
-    `$0`: `"script.sh"`  
-    `$1`: parameter1  
-    `$2`: parameter2
+* Positional Parameters: 
+    ```
+    $0: script.sh  
+    $1: parameter1  
+    $2: parameter2
+    ```
+    * To access every input variable from $1: `for USER in $@`
+* STDIN:
+    `read -p "PROMPT" VARIABLE`

@@ -57,3 +57,16 @@ Quizzes and notes for Udemy online course Shell Scripting: Discover How to Autom
     * To access every input variable from $1: `for USER in $@`
 * STDIN:
     `read -p "PROMPT" VARIABLE`
+
+
+### Section3: Exit Statuses and Return Codes
+* Exit Status:
+    * Every command return a status of 0~255
+    * 0 is success, other than 0 are errors
+    * `$?`: Exit code of previous command, can assign to variable
+    * Explicitly define exit status: `exit n` (otherwise returns that of previous command)
+* Logical Operators:
+    * `&&`: AND (execute second command if only first command succeeds)
+    * `||`: OR (execute second command if only first command fails)
+    * Chain commands together: If previous command exits with 0, command after `&&` will be executed, whereas command after `||` will not
+        * Semicolon `;` is same as putting commands on different lines, can also be used outside shell scripts

@@ -110,3 +110,14 @@ Quizzes and notes for Udemy online course Shell Scripting: Discover How to Autom
     * `$?`: Exit code of last command, can assign to variable
 * PID of current script: `$$`
 * basename: Get only file name of a path
+
+
+### Section5: Shell Script Checklist
+* Shebang
+* Comments / file header: What the script does, etc.
+* Global variables
+* Group all functions
+    * Use `local`
+* Script body
+* Explicitly exit with an exit status
+    * Last line with `exit 0`

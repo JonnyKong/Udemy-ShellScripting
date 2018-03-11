@@ -63,10 +63,50 @@ Quizzes and notes for Udemy online course Shell Scripting: Discover How to Autom
 * Exit Status:
     * Every command return a status of 0~255
     * 0 is success, other than 0 are errors
-    * `$?`: Exit code of previous command, can assign to variable
+    * `$?`: Exit code of last command, can assign to variable
     * Explicitly define exit status: `exit n` (otherwise returns that of previous command)
 * Logical Operators:
     * `&&`: AND (execute second command if only first command succeeds)
     * `||`: OR (execute second command if only first command fails)
     * Chain commands together: If previous command exits with 0, command after `&&` will be executed, whereas command after `||` will not
         * Semicolon `;` is same as putting commands on different lines, can also be used outside shell scripts
+
+
+### Section4: Functions
+* Define a function:
+    ```
+    function function-name() {
+        # Code goes here
+    }
+    # Or
+    function-name() {
+        # Code goes here
+    }
+    ```
+* Call a function:
+    ```
+    function-name
+    ```
+* Functions have to be:
+    * Defined before it's called
+        * Function evaluates at run-time (not pre-compiled), so we can call a function in another function's body (e.g. mutual recursion)
+    * No braces around
+* Arguments:
+    ```
+    $0: The script itself
+    ```
+    * To access all parameters from $1: `for USER in $@`
+* Scopes:
+    * By default, variables are global
+    * Have to be defined before used
+    * Variable defined inside function: Valid after function is executed
+    * Local variables:
+        * Accessed within the function (only functions can have local variables)
+        * Created with: `local LOCAL_VAR=1`
+* Exit status (Return code):
+    * Explicitly: `return <RETURN_CODE>`
+    * Implicitly: Exit status of last command
+    * 0 is success, other than 0 are errors
+    * `$?`: Exit code of last command, can assign to variable
+* PID of current script: `$$`
+* basename: Get only file name of a path

@@ -55,6 +55,7 @@ Quizzes and notes for Udemy online course Shell Scripting: Discover How to Autom
     $2: parameter2
     ```
     * To access every input variable from $1: `for USER in $@`
+    * Use `shift` to shift the positional arguments to the left
 * STDIN:
     `read -p "PROMPT" VARIABLE`
 
@@ -142,7 +143,7 @@ Quizzes and notes for Udemy online course Shell Scripting: Discover How to Autom
 * Can use in a for loop: `for FILE in *.txt`
 
 
-# Section7: Case Statements
+### Section7: Case Statements
 ```
 case "$VAR" in
     pattern_1)
@@ -156,3 +157,14 @@ esac
 * Use `|` for multiple patterns
     * Match "yes": `[yY]|[yY][eE][sS]`
 * Use `*` to catch-all
+
+
+### Section8: Logging
+* Who, what, when, where, why
+* Syslog standard (Linux)
+    * Facilities: kern, user, mail, daemon, auth, local0, local7
+    * Severitiese: emerg, alert, crit, err, warning, debug, ...
+    * Log locations are configurable:
+        * /var/log/messages
+        * /var/log/syslog
+* Logging with `logger`

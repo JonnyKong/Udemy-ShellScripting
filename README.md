@@ -168,3 +168,35 @@ esac
         * /var/log/messages
         * /var/log/syslog
 * Logging with `logger`
+
+
+### Section9: While Loops
+```
+while [CONDITION_IS_TRUE]
+do
+    command 1
+    command 2
+    command n
+done
+```
+* Condition can be a command, continues if exit status is 0
+* Increment: `((INDEX++))`, this is called arithmetic expansion
+* `for` loop reads file word-by-word. To read the file line-by-line:
+    ```
+    LINE_NUM=1
+    while read LINE
+    do
+        echo "${LINE_NUM}: ${LINE}"
+        ((LINE_NUM++))
+    done < file_to_read.txt
+    ```
+    or pip the file content into `while`:
+    ```
+    grep * file_to_read.txt | while read LINE
+    do
+        echo "${LINE}"
+    done
+    ```
+* Read to multiple variables (like pattern matching): `while read FS MP REST`
+    * First n-1 vars assigned one word each
+    * The last command carries all rest words

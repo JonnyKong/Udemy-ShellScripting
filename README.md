@@ -140,3 +140,19 @@ Quizzes and notes for Udemy online course Shell Scripting: Discover How to Autom
 * Match a wildcard char:
     * Use an escape char: `\?` and `\*`
 * Can use in a for loop: `for FILE in *.txt`
+
+
+# Section7: Case Statements
+```
+case "$VAR" in
+    pattern_1)
+        # Commands
+        ;;
+    pattern_N)
+        # Commands
+        ;;
+esac
+```
+* Use `|` for multiple patterns
+    * Match "yes": `[yY]|[yY][eE][sS]`
+* Use `*` to catch-all

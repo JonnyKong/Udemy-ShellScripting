@@ -121,3 +121,22 @@ Quizzes and notes for Udemy online course Shell Scripting: Discover How to Autom
 * Script body
 * Explicitly exit with an exit status
     * Last line with `exit 0`
+
+
+### Section6: Wildcards
+* `*`: Matches zero or more chars
+* `?`: Matches one char
+* `[]`: A character class: Match any of the chars included between the brackets
+    * `[!]`: Matches any of the chars not included in the bracket (matches exactly one char)
+        * `[!aeiou]*`: Any file not starting with a vowel
+    * Ranges: `[a-g]*`: Any file starting with a, b, c, d, e, f or g
+    * Predefined char classes:
+        * `[[:alpha:]]`: Alphabetic letters
+        * `[[:alnum:]]`: Alphanumeric letters
+        * `[[:digit:]]`: Letter in decimal
+        * `[[:lower:]]`: Lowercase letters 
+        * `[[:space:]]`: Space, newline and tabs 
+        * `[[:upper:]]`: Uppercase letters
+* Match a wildcard char:
+    * Use an escape char: `\?` and `\*`
+* Can use in a for loop: `for FILE in *.txt`

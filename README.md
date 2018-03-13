@@ -200,3 +200,32 @@ done
 * Read to multiple variables (like pattern matching): `while read FS MP REST`
     * First n-1 vars assigned one word each
     * The last command carries all rest words
+
+
+### Section10: Debugging
+* `-x`: Print commands as they execute (after substitution and expansions)
+    * Shebang: `#!/bin/bash -x`
+    * Command line: `set -x` and `set +x`
+    * Options can be combined, for example: `#!/bin/bash -ex`
+* `-e`: Exit on error
+* `-v`: Print shell input lines as they are read (before substitution or expansions)
+    * `-vx`: Show how commands are written & How they are actually executed
+* Manual debugging: For example, use a special variable like `DEBUG`  
+    * Use logical Operators:  
+    `$DEBUG && echo "Debug mode ON."`  
+    `$DEBUG || echo "Debug mode OFF."` 
+    * Set debug to echo:  
+    `DEBUG=echo`
+    `$DEBUG ls`
+    * Print args:
+    ```
+    function debug() {
+        echo "Executing: $@"
+        $@
+    }
+    debug ls
+    ```
+* `PS4`: Controls what is displayed before a line when using `-x` option
+* Linux and DOS are different in carriage returns 
+    * Use `#!/bin/bash^m` or `cat -v file` to print additional carriage returns
+    * Use `doc2unix` command to convert
